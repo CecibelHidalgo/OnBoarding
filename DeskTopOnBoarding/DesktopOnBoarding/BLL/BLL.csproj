@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspectoConductualBLL.cs" />
+    <Compile Include="AspectoTecnicoBLL.cs" />
+    <Compile Include="DetalleAspectoBLL.cs" />
     <Compile Include="EmpleadoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecursoBLL.cs" />

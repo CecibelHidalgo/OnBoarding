@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ApiOnBoarding.Models;
+using System.Web.Http.Cors;
 
 namespace ApiOnBoarding.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class OBTAspectosConductualesController : ApiController
     {
         private dbProyectoOnboardingEntities db = new dbProyectoOnboardingEntities();
@@ -22,6 +24,53 @@ namespace ApiOnBoarding.Controllers
         {
             return db.OBTAspectosConductuales;
         }
+
+
+        //// lista los aspectos conductuales
+
+        // GET: api/OBTRecurso/LIstar
+        [Route("api/AspectoConductual/Listar")]
+        [HttpGet]
+        public HttpResponseMessage Listar()
+        {
+
+            try
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.ProxyCreationEnabled = false;
+
+
+                var entidadstL = (from aspetoConductual in db.OBTAspectosConductuales
+                                  where aspetoConductual.Eliminado == false && aspetoConductual.Activo == true
+                                  
+                                  select new
+                                  {
+                                      aspetoConductual.CodigoWill,
+                                      aspetoConductual.NombreWill,
+                                      aspetoConductual.Descripcion,
+                                      aspetoConductual.Peso
+                                  }).ToList();
+
+                if (entidadstL != null && entidadstL.Count() > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, entidadstL);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.GetBaseException().Message);
+            }
+
+
+        }
+
+
 
         // GET: api/OBTAspectosConductuales/5
         [ResponseType(typeof(OBTAspectosConductuales))]

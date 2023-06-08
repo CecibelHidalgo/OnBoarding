@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gcInformacionGeneral = new DevExpress.XtraEditors.GroupControl();
+            this.ButtonEditar = new DevExpress.XtraEditors.SimpleButton();
+            this.ButtonNuevo = new DevExpress.XtraEditors.SimpleButton();
             this.ButtonGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.txtNombreRecurso = new DevExpress.XtraEditors.TextEdit();
             this.lbNombreRecurso = new DevExpress.XtraEditors.LabelControl();
@@ -43,8 +45,6 @@
             this.gridColNombreRecurso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColCodigoEmpleado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColNombreEmpleado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ButtonNuevo = new DevExpress.XtraEditors.SimpleButton();
-            this.ButtonEditar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcInformacionGeneral)).BeginInit();
             this.gcInformacionGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombreRecurso.Properties)).BeginInit();
@@ -74,6 +74,43 @@
             this.gcInformacionGeneral.Size = new System.Drawing.Size(852, 137);
             this.gcInformacionGeneral.TabIndex = 14;
             this.gcInformacionGeneral.Text = "Información general";
+            // 
+            // ButtonEditar
+            // 
+            this.ButtonEditar.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonEditar.Appearance.ForeColor = System.Drawing.Color.White;
+            this.ButtonEditar.Appearance.Options.UseBackColor = true;
+            this.ButtonEditar.Appearance.Options.UseFont = true;
+            this.ButtonEditar.Appearance.Options.UseForeColor = true;
+            this.ButtonEditar.AutoWidthInLayoutControl = true;
+            this.ButtonEditar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.ButtonEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditar.Enabled = false;
+            this.ButtonEditar.Location = new System.Drawing.Point(730, 56);
+            this.ButtonEditar.Name = "ButtonEditar";
+            this.ButtonEditar.Size = new System.Drawing.Size(98, 25);
+            this.ButtonEditar.TabIndex = 11;
+            this.ButtonEditar.Text = "Editar";
+            // 
+            // ButtonNuevo
+            // 
+            this.ButtonNuevo.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.ButtonNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonNuevo.Appearance.ForeColor = System.Drawing.Color.White;
+            this.ButtonNuevo.Appearance.Options.UseBackColor = true;
+            this.ButtonNuevo.Appearance.Options.UseFont = true;
+            this.ButtonNuevo.Appearance.Options.UseForeColor = true;
+            this.ButtonNuevo.AutoWidthInLayoutControl = true;
+            this.ButtonNuevo.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.ButtonNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonNuevo.Enabled = false;
+            this.ButtonNuevo.Location = new System.Drawing.Point(730, 25);
+            this.ButtonNuevo.Name = "ButtonNuevo";
+            this.ButtonNuevo.Size = new System.Drawing.Size(98, 25);
+            this.ButtonNuevo.TabIndex = 10;
+            this.ButtonNuevo.Text = "Nuevo";
+            this.ButtonNuevo.Click += new System.EventHandler(this.ButtonNuevo_Click);
             // 
             // ButtonGuardar
             // 
@@ -231,43 +268,6 @@
             this.gridColNombreEmpleado.Visible = true;
             this.gridColNombreEmpleado.VisibleIndex = 3;
             // 
-            // ButtonNuevo
-            // 
-            this.ButtonNuevo.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.ButtonNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonNuevo.Appearance.ForeColor = System.Drawing.Color.White;
-            this.ButtonNuevo.Appearance.Options.UseBackColor = true;
-            this.ButtonNuevo.Appearance.Options.UseFont = true;
-            this.ButtonNuevo.Appearance.Options.UseForeColor = true;
-            this.ButtonNuevo.AutoWidthInLayoutControl = true;
-            this.ButtonNuevo.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.ButtonNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonNuevo.Enabled = false;
-            this.ButtonNuevo.Location = new System.Drawing.Point(730, 25);
-            this.ButtonNuevo.Name = "ButtonNuevo";
-            this.ButtonNuevo.Size = new System.Drawing.Size(98, 25);
-            this.ButtonNuevo.TabIndex = 10;
-            this.ButtonNuevo.Text = "Nuevo";
-            this.ButtonNuevo.Click += new System.EventHandler(this.ButtonNuevo_Click);
-            // 
-            // ButtonEditar
-            // 
-            this.ButtonEditar.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.ButtonEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonEditar.Appearance.ForeColor = System.Drawing.Color.White;
-            this.ButtonEditar.Appearance.Options.UseBackColor = true;
-            this.ButtonEditar.Appearance.Options.UseFont = true;
-            this.ButtonEditar.Appearance.Options.UseForeColor = true;
-            this.ButtonEditar.AutoWidthInLayoutControl = true;
-            this.ButtonEditar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.ButtonEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ButtonEditar.Enabled = false;
-            this.ButtonEditar.Location = new System.Drawing.Point(730, 56);
-            this.ButtonEditar.Name = "ButtonEditar";
-            this.ButtonEditar.Size = new System.Drawing.Size(98, 25);
-            this.ButtonEditar.TabIndex = 11;
-            this.ButtonEditar.Text = "Editar";
-            // 
             // RecursosUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +276,7 @@
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.gcInformacionGeneral);
             this.Name = "RecursosUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recursos";
             this.Load += new System.EventHandler(this.RecursosUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcInformacionGeneral)).EndInit();

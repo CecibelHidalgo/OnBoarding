@@ -59,6 +59,12 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetalleAspectoUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleAspectoUI.Designer.cs">
+      <DependentUpon>DetalleAspectoUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursoUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleAspectoUI.resx">
+      <DependentUpon>DetalleAspectoUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursoUI.resx">
       <DependentUpon>RecursoUI.cs</DependentUpon>

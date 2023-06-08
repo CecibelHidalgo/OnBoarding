@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
 using BLL;
-
-
-
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Docking2010;
 using DevExpress.Utils.VisualEffects;

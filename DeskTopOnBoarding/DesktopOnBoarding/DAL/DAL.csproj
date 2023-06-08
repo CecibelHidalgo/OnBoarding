@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspectoConductualDAL.cs" />
+    <Compile Include="AspectoTenicoDAL.cs" />
+    <Compile Include="DetalleAspectoDAL.cs" />
     <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecursoDAL.cs" />

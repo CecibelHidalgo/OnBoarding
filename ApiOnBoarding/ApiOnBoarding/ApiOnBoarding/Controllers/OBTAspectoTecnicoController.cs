@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ApiOnBoarding.Models;
+using System.Web.Http.Cors;
 
 namespace ApiOnBoarding.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class OBTAspectoTecnicoController : ApiController
     {
         private dbProyectoOnboardingEntities db = new dbProyectoOnboardingEntities();
@@ -21,6 +23,53 @@ namespace ApiOnBoarding.Controllers
         {
             return db.OBTAspectoTecnico;
         }
+
+
+        //// lista los aspectos tecnicos
+
+        // GET: api/OBTRecurso/LIstar
+        [Route("api/AspectoTecnico/Listar")]
+        [HttpGet]
+        public HttpResponseMessage Listar()
+        {
+
+            try
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                db.Configuration.ProxyCreationEnabled = false;
+
+
+                var entidadstL = (from aspetoTecnico in db.OBTAspectoTecnico
+                                  where aspetoTecnico.Eliminado == false && aspetoTecnico.Activo == true
+
+                                  select new
+                                  {
+                                      aspetoTecnico.CodigoAspectoTecnico,
+                                      aspetoTecnico.NombreAspectoTecnico 
+                                      
+                                  }).ToList();
+
+                if (entidadstL != null && entidadstL.Count() > 0)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, entidadstL);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.GetBaseException().Message);
+            }
+
+        }
+
+
+    
+
 
         // GET: api/OBTAspectoTecnico/5
         [ResponseType(typeof(OBTAspectoTecnico))]

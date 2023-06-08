@@ -25,5 +25,12 @@ namespace DesktopOnBoarding
             ventana.Show();
 
         }
+
+        private void recursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DetalleAspectoUI ventana = new DetalleAspectoUI();
+
+            ventana.Show();
+        }
     }
 }

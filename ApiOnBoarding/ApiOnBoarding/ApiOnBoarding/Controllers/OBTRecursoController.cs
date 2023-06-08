@@ -30,7 +30,7 @@ namespace ApiOnBoarding.Controllers
 
         [AllowAnonymous]
 
-        // lista los recursos asociados al empleado
+        //// lista los recursos asociados al empleado
 
         // GET: api/OBTRecurso/LIstar
         [Route("api/Recurso/Listar")]
