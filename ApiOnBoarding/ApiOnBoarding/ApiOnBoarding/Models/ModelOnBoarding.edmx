@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbProyectoOnboardingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OBTArea">
+          <Key>
+            <PropertyRef Name="CodigoArea" />
+          </Key>
+          <Property Name="CodigoArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreArea" Type="varchar" MaxLength="150" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTAspectosConductuales">
+          <Key>
+            <PropertyRef Name="CodigoWill" />
+          </Key>
+          <Property Name="CodigoWill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreWill" Type="varchar" MaxLength="250" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Peso" Type="nchar" MaxLength="10" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTAspectoTecnico">
+          <Key>
+            <PropertyRef Name="CodigoAspectoTecnico" />
+          </Key>
+          <Property Name="CodigoAspectoTecnico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreAspectoTecnico" Type="varchar" MaxLength="250" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTAspectoTecnicoActividad">
+          <Key>
+            <PropertyRef Name="CodigoAspectoTecnicoActividad" />
+          </Key>
+          <Property Name="CodigoAspectoTecnicoActividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoAspectoTecnico" Type="int" Nullable="false" />
+          <Property Name="NombreActividad" Type="varchar" MaxLength="250" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTDetalleAspectos">
+          <Key>
+            <PropertyRef Name="CodigoDetalle" />
+          </Key>
+          <Property Name="CodigoDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEmpleado" Type="int" Nullable="false" />
+          <Property Name="CodigoAspectoTecnico" Type="int" Nullable="false" />
+          <Property Name="CodigoWill" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="date" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="date" />
+        </EntityType>
+        <EntityType Name="OBTEmpleado">
+          <Key>
+            <PropertyRef Name="CodigoEmpleado" />
+          </Key>
+          <Property Name="CodigoEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEmpleado" Type="varchar" MaxLength="250" />
+          <Property Name="ApellidoEmpleado" Type="varchar" MaxLength="250" />
+          <Property Name="CodigoPuesto" Type="int" />
+          <Property Name="CodigoArea" Type="int" />
+          <Property Name="NombreArea" Type="varchar" MaxLength="250" />
+          <Property Name="DPI" Type="varchar" MaxLength="13" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaInserto" Type="datetime" Nullable="false" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTPuesto">
+          <Key>
+            <PropertyRef Name="CodigoPuesto" />
+          </Key>
+          <Property Name="CodigoPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePuesto" Type="varchar" MaxLength="250" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OBTRecurso">
+          <Key>
+            <PropertyRef Name="CodigoRecurso" />
+          </Key>
+          <Property Name="CodigoRecurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRecurso" Type="varchar" MaxLength="250" />
+          <Property Name="CodigoEmpleado" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="Eliminado" Type="bit" />
+          <Property Name="UsuarioInserto" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaInserto" Type="datetime" />
+          <Property Name="UsuarioModifico" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="fk_AspectoTecnicoActividad">
+          <End Role="OBTAspectoTecnico" Type="Self.OBTAspectoTecnico" Multiplicity="1" />
+          <End Role="OBTAspectoTecnicoActividad" Type="Self.OBTAspectoTecnicoActividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectoTecnico">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Principal>
+            <Dependent Role="OBTAspectoTecnicoActividad">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EmpleadoArea">
+          <End Role="OBTArea" Type="Self.OBTArea" Multiplicity="0..1" />
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTArea">
+              <PropertyRef Name="CodigoArea" />
+            </Principal>
+            <Dependent Role="OBTEmpleado">
+              <PropertyRef Name="CodigoArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EmpleadoPuesto">
+          <End Role="OBTPuesto" Type="Self.OBTPuesto" Multiplicity="0..1" />
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTPuesto">
+              <PropertyRef Name="CodigoPuesto" />
+            </Principal>
+            <Dependent Role="OBTEmpleado">
+              <PropertyRef Name="CodigoPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectos">
+          <End Role="OBTAspectoTecnico" Type="Self.OBTAspectoTecnico" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectoTecnico">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectosEmpleado">
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTEmpleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectosWill">
+          <End Role="OBTAspectosConductuales" Type="Self.OBTAspectosConductuales" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectosConductuales">
+              <PropertyRef Name="CodigoWill" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTRecurso">
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="1" />
+          <End Role="OBTRecurso" Type="Self.OBTRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTEmpleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="OBTRecurso">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbProyectoOnboardingModelStoreContainer">
+          <EntitySet Name="OBTArea" EntityType="Self.OBTArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTAspectosConductuales" EntityType="Self.OBTAspectosConductuales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTAspectoTecnico" EntityType="Self.OBTAspectoTecnico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTAspectoTecnicoActividad" EntityType="Self.OBTAspectoTecnicoActividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTDetalleAspectos" EntityType="Self.OBTDetalleAspectos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTEmpleado" EntityType="Self.OBTEmpleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTPuesto" EntityType="Self.OBTPuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OBTRecurso" EntityType="Self.OBTRecurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_AspectoTecnicoActividad" Association="Self.fk_AspectoTecnicoActividad">
+            <End Role="OBTAspectoTecnico" EntitySet="OBTAspectoTecnico" />
+            <End Role="OBTAspectoTecnicoActividad" EntitySet="OBTAspectoTecnicoActividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EmpleadoArea" Association="Self.fk_EmpleadoArea">
+            <End Role="OBTArea" EntitySet="OBTArea" />
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EmpleadoPuesto" Association="Self.fk_EmpleadoPuesto">
+            <End Role="OBTPuesto" EntitySet="OBTPuesto" />
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectos" Association="Self.fk_OBTDetalleAspectos">
+            <End Role="OBTAspectoTecnico" EntitySet="OBTAspectoTecnico" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectosEmpleado" Association="Self.fk_OBTDetalleAspectosEmpleado">
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectosWill" Association="Self.fk_OBTDetalleAspectosWill">
+            <End Role="OBTAspectosConductuales" EntitySet="OBTAspectosConductuales" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTRecurso" Association="Self.fk_OBTRecurso">
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+            <End Role="OBTRecurso" EntitySet="OBTRecurso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbProyectoOnboardingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OBTArea">
+          <Key>
+            <PropertyRef Name="CodigoArea" />
+          </Key>
+          <Property Name="CodigoArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreArea" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTEmpleado" Relationship="Self.fk_EmpleadoArea" FromRole="OBTArea" ToRole="OBTEmpleado" />
+        </EntityType>
+        <EntityType Name="OBTAspectosConductuales">
+          <Key>
+            <PropertyRef Name="CodigoWill" />
+          </Key>
+          <Property Name="CodigoWill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreWill" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Peso" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTDetalleAspectos" Relationship="Self.fk_OBTDetalleAspectosWill" FromRole="OBTAspectosConductuales" ToRole="OBTDetalleAspectos" />
+        </EntityType>
+        <EntityType Name="OBTAspectoTecnico">
+          <Key>
+            <PropertyRef Name="CodigoAspectoTecnico" />
+          </Key>
+          <Property Name="CodigoAspectoTecnico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreAspectoTecnico" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTAspectoTecnicoActividad" Relationship="Self.fk_AspectoTecnicoActividad" FromRole="OBTAspectoTecnico" ToRole="OBTAspectoTecnicoActividad" />
+          <NavigationProperty Name="OBTDetalleAspectos" Relationship="Self.fk_OBTDetalleAspectos" FromRole="OBTAspectoTecnico" ToRole="OBTDetalleAspectos" />
+        </EntityType>
+        <EntityType Name="OBTAspectoTecnicoActividad">
+          <Key>
+            <PropertyRef Name="CodigoAspectoTecnicoActividad" />
+          </Key>
+          <Property Name="CodigoAspectoTecnicoActividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoAspectoTecnico" Type="Int32" Nullable="false" />
+          <Property Name="NombreActividad" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTAspectoTecnico" Relationship="Self.fk_AspectoTecnicoActividad" FromRole="OBTAspectoTecnicoActividad" ToRole="OBTAspectoTecnico" />
+        </EntityType>
+        <EntityType Name="OBTDetalleAspectos">
+          <Key>
+            <PropertyRef Name="CodigoDetalle" />
+          </Key>
+          <Property Name="CodigoDetalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="CodigoAspectoTecnico" Type="Int32" Nullable="false" />
+          <Property Name="CodigoWill" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="0" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="OBTAspectosConductuales" Relationship="Self.fk_OBTDetalleAspectosWill" FromRole="OBTDetalleAspectos" ToRole="OBTAspectosConductuales" />
+          <NavigationProperty Name="OBTAspectoTecnico" Relationship="Self.fk_OBTDetalleAspectos" FromRole="OBTDetalleAspectos" ToRole="OBTAspectoTecnico" />
+          <NavigationProperty Name="OBTEmpleado" Relationship="Self.fk_OBTDetalleAspectosEmpleado" FromRole="OBTDetalleAspectos" ToRole="OBTEmpleado" />
+        </EntityType>
+        <EntityType Name="OBTEmpleado">
+          <Key>
+            <PropertyRef Name="CodigoEmpleado" />
+          </Key>
+          <Property Name="CodigoEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEmpleado" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoEmpleado" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPuesto" Type="Int32" />
+          <Property Name="CodigoArea" Type="Int32" />
+          <Property Name="NombreArea" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DPI" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaInserto" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTArea" Relationship="Self.fk_EmpleadoArea" FromRole="OBTEmpleado" ToRole="OBTArea" />
+          <NavigationProperty Name="OBTDetalleAspectos" Relationship="Self.fk_OBTDetalleAspectosEmpleado" FromRole="OBTEmpleado" ToRole="OBTDetalleAspectos" />
+          <NavigationProperty Name="OBTPuesto" Relationship="Self.fk_EmpleadoPuesto" FromRole="OBTEmpleado" ToRole="OBTPuesto" />
+          <NavigationProperty Name="OBTRecurso" Relationship="Self.fk_OBTRecurso" FromRole="OBTEmpleado" ToRole="OBTRecurso" />
+        </EntityType>
+        <EntityType Name="OBTPuesto">
+          <Key>
+            <PropertyRef Name="CodigoPuesto" />
+          </Key>
+          <Property Name="CodigoPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePuesto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTEmpleado" Relationship="Self.fk_EmpleadoPuesto" FromRole="OBTPuesto" ToRole="OBTEmpleado" />
+        </EntityType>
+        <EntityType Name="OBTRecurso">
+          <Key>
+            <PropertyRef Name="CodigoRecurso" />
+          </Key>
+          <Property Name="CodigoRecurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRecurso" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="Eliminado" Type="Boolean" />
+          <Property Name="UsuarioInserto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInserto" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioModifico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OBTEmpleado" Relationship="Self.fk_OBTRecurso" FromRole="OBTRecurso" ToRole="OBTEmpleado" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="fk_EmpleadoArea">
+          <End Role="OBTArea" Type="Self.OBTArea" Multiplicity="0..1" />
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTArea">
+              <PropertyRef Name="CodigoArea" />
+            </Principal>
+            <Dependent Role="OBTEmpleado">
+              <PropertyRef Name="CodigoArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectosWill">
+          <End Role="OBTAspectosConductuales" Type="Self.OBTAspectosConductuales" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectosConductuales">
+              <PropertyRef Name="CodigoWill" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoWill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_AspectoTecnicoActividad">
+          <End Role="OBTAspectoTecnico" Type="Self.OBTAspectoTecnico" Multiplicity="1" />
+          <End Role="OBTAspectoTecnicoActividad" Type="Self.OBTAspectoTecnicoActividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectoTecnico">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Principal>
+            <Dependent Role="OBTAspectoTecnicoActividad">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectos">
+          <End Role="OBTAspectoTecnico" Type="Self.OBTAspectoTecnico" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTAspectoTecnico">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoAspectoTecnico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTDetalleAspectosEmpleado">
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="1" />
+          <End Role="OBTDetalleAspectos" Type="Self.OBTDetalleAspectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTEmpleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="OBTDetalleAspectos">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_EmpleadoPuesto">
+          <End Role="OBTPuesto" Type="Self.OBTPuesto" Multiplicity="0..1" />
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTPuesto">
+              <PropertyRef Name="CodigoPuesto" />
+            </Principal>
+            <Dependent Role="OBTEmpleado">
+              <PropertyRef Name="CodigoPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OBTRecurso">
+          <End Role="OBTEmpleado" Type="Self.OBTEmpleado" Multiplicity="1" />
+          <End Role="OBTRecurso" Type="Self.OBTRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OBTEmpleado">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Principal>
+            <Dependent Role="OBTRecurso">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbProyectoOnboardingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OBTArea" EntityType="Self.OBTArea" />
+          <EntitySet Name="OBTAspectosConductuales" EntityType="Self.OBTAspectosConductuales" />
+          <EntitySet Name="OBTAspectoTecnico" EntityType="Self.OBTAspectoTecnico" />
+          <EntitySet Name="OBTAspectoTecnicoActividad" EntityType="Self.OBTAspectoTecnicoActividad" />
+          <EntitySet Name="OBTDetalleAspectos" EntityType="Self.OBTDetalleAspectos" />
+          <EntitySet Name="OBTEmpleado" EntityType="Self.OBTEmpleado" />
+          <EntitySet Name="OBTPuesto" EntityType="Self.OBTPuesto" />
+          <EntitySet Name="OBTRecurso" EntityType="Self.OBTRecurso" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="fk_EmpleadoArea" Association="Self.fk_EmpleadoArea">
+            <End Role="OBTArea" EntitySet="OBTArea" />
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectosWill" Association="Self.fk_OBTDetalleAspectosWill">
+            <End Role="OBTAspectosConductuales" EntitySet="OBTAspectosConductuales" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_AspectoTecnicoActividad" Association="Self.fk_AspectoTecnicoActividad">
+            <End Role="OBTAspectoTecnico" EntitySet="OBTAspectoTecnico" />
+            <End Role="OBTAspectoTecnicoActividad" EntitySet="OBTAspectoTecnicoActividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectos" Association="Self.fk_OBTDetalleAspectos">
+            <End Role="OBTAspectoTecnico" EntitySet="OBTAspectoTecnico" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTDetalleAspectosEmpleado" Association="Self.fk_OBTDetalleAspectosEmpleado">
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+            <End Role="OBTDetalleAspectos" EntitySet="OBTDetalleAspectos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_EmpleadoPuesto" Association="Self.fk_EmpleadoPuesto">
+            <End Role="OBTPuesto" EntitySet="OBTPuesto" />
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OBTRecurso" Association="Self.fk_OBTRecurso">
+            <End Role="OBTEmpleado" EntitySet="OBTEmpleado" />
+            <End Role="OBTRecurso" EntitySet="OBTRecurso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbProyectoOnboardingModelStoreContainer" CdmEntityContainer="dbProyectoOnboardingEntities">
+          <EntitySetMapping Name="OBTArea">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTArea">
+              <MappingFragment StoreEntitySet="OBTArea">
+                <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
+                <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTAspectosConductuales">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTAspectosConductuales">
+              <MappingFragment StoreEntitySet="OBTAspectosConductuales">
+                <ScalarProperty Name="CodigoWill" ColumnName="CodigoWill" />
+                <ScalarProperty Name="NombreWill" ColumnName="NombreWill" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTAspectoTecnico">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTAspectoTecnico">
+              <MappingFragment StoreEntitySet="OBTAspectoTecnico">
+                <ScalarProperty Name="CodigoAspectoTecnico" ColumnName="CodigoAspectoTecnico" />
+                <ScalarProperty Name="NombreAspectoTecnico" ColumnName="NombreAspectoTecnico" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTAspectoTecnicoActividad">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTAspectoTecnicoActividad">
+              <MappingFragment StoreEntitySet="OBTAspectoTecnicoActividad">
+                <ScalarProperty Name="CodigoAspectoTecnicoActividad" ColumnName="CodigoAspectoTecnicoActividad" />
+                <ScalarProperty Name="CodigoAspectoTecnico" ColumnName="CodigoAspectoTecnico" />
+                <ScalarProperty Name="NombreActividad" ColumnName="NombreActividad" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTDetalleAspectos">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTDetalleAspectos">
+              <MappingFragment StoreEntitySet="OBTDetalleAspectos">
+                <ScalarProperty Name="CodigoDetalle" ColumnName="CodigoDetalle" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="CodigoAspectoTecnico" ColumnName="CodigoAspectoTecnico" />
+                <ScalarProperty Name="CodigoWill" ColumnName="CodigoWill" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTEmpleado">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTEmpleado">
+              <MappingFragment StoreEntitySet="OBTEmpleado">
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+                <ScalarProperty Name="ApellidoEmpleado" ColumnName="ApellidoEmpleado" />
+                <ScalarProperty Name="CodigoPuesto" ColumnName="CodigoPuesto" />
+                <ScalarProperty Name="CodigoArea" ColumnName="CodigoArea" />
+                <ScalarProperty Name="NombreArea" ColumnName="NombreArea" />
+                <ScalarProperty Name="DPI" ColumnName="DPI" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTPuesto">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTPuesto">
+              <MappingFragment StoreEntitySet="OBTPuesto">
+                <ScalarProperty Name="CodigoPuesto" ColumnName="CodigoPuesto" />
+                <ScalarProperty Name="NombrePuesto" ColumnName="NombrePuesto" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OBTRecurso">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.OBTRecurso">
+              <MappingFragment StoreEntitySet="OBTRecurso">
+                <ScalarProperty Name="CodigoRecurso" ColumnName="CodigoRecurso" />
+                <ScalarProperty Name="NombreRecurso" ColumnName="NombreRecurso" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="UsuarioInserto" ColumnName="UsuarioInserto" />
+                <ScalarProperty Name="FechaInserto" ColumnName="FechaInserto" />
+                <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+                <ScalarProperty Name="FechaModifico" ColumnName="FechaModifico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbProyectoOnboardingModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

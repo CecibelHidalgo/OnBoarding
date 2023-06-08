@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7d7da951a3240548a78fb7d2572ad62" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTArea" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTAspectosConductuales" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTAspectoTecnico" Width="1.5" PointX="9.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTAspectoTecnicoActividad" Width="1.5" PointX="6.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTDetalleAspectos" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTEmpleado" Width="1.5" PointX="4" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTPuesto" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.OBTRecurso" Width="1.5" PointX="6.375" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProyectoOnboardingModel.sysdiagrams" Width="1.5" PointX="11.125" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_EmpleadoArea" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_OBTDetalleAspectosWill" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_AspectoTecnicoActividad" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_OBTDetalleAspectos" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_OBTDetalleAspectosEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_EmpleadoPuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProyectoOnboardingModel.fk_OBTRecurso" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
