@@ -65,6 +65,12 @@
     <Compile Include="DetalleAspectoUI.Designer.cs">
       <DependentUpon>DetalleAspectoUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="AspectoConductualUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AspectoConductualUI.Designer.cs">
+      <DependentUpon>AspectoConductualUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecursoUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetalleAspectoUI.resx">
       <DependentUpon>DetalleAspectoUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AspectoConductualUI.resx">
+      <DependentUpon>AspectoConductualUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecursoUI.resx">
       <DependentUpon>RecursoUI.cs</DependentUpon>

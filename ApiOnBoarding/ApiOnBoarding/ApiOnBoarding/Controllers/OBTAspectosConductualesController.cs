@@ -17,8 +17,7 @@ namespace ApiOnBoarding.Controllers
     public class OBTAspectosConductualesController : ApiController
     {
         private dbProyectoOnboardingEntities db = new dbProyectoOnboardingEntities();
-
-        [AllowAnonymous]
+ 
         // GET: api/OBTAspectosConductuales
         public IQueryable<OBTAspectosConductuales> GetOBTAspectosConductuales()
         {
@@ -72,7 +71,7 @@ namespace ApiOnBoarding.Controllers
 
 
 
-        // GET: api/OBTAspectosConductuales/5
+        // GET: api/OBTAspectosConductuales/3
         [ResponseType(typeof(OBTAspectosConductuales))]
         public IHttpActionResult GetOBTAspectosConductuales(int id)
         {
@@ -85,7 +84,7 @@ namespace ApiOnBoarding.Controllers
             return Ok(oBTAspectosConductuales);
         }
 
-        // PUT: api/OBTAspectosConductuales/5
+        // PUT: api/OBTAspectosConductuales/3
         [ResponseType(typeof(void))]
         public IHttpActionResult PutOBTAspectosConductuales(int id, OBTAspectosConductuales oBTAspectosConductuales)
         {

@@ -32,5 +32,31 @@ namespace DesktopOnBoarding
 
             ventana.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AspectoConductualUI ventana = new AspectoConductualUI();
+
+            ventana.Show();
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void detalleDeAspectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DetalleAspectoUI ventana = new DetalleAspectoUI();
+
+            ventana.Show();
+        }
+
+        private void recursosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RecursosUI ventana = new RecursosUI();
+
+            ventana.Show();
+        }
     }
 }
